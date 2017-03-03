@@ -30,9 +30,8 @@ def union(a, b):
 
 
 def connected(a, b):
-    element = (1 << a) | (1 << b)
     for item in universe:
-        if item & element:
+        if (item & (1 << a)) and (item & (1 << b)):
             return item
     return 0
 
