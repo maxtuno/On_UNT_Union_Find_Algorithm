@@ -17,7 +17,7 @@ universe = []
 
 
 def union(a, b):
-    element = (1 << a) + (1 << b)
+    element = (1 << a) | (1 << b)
     idx = 0
     while idx != len(universe):
         if universe[idx] & element:
@@ -30,7 +30,7 @@ def union(a, b):
 
 
 def connected(a, b):
-    element = (1 << a) + (1 << b)
+    element = (1 << a) | (1 << b)
     for item in universe:
         if item & element:
             return item
