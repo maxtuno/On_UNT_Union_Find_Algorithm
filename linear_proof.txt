@@ -1,0 +1,21 @@
+The for loops steps are strictelly < n, and the operation (1 << a) | (1 << b) take in n steps in terms of turing machine, 
+
+
+0000001 (a-nth bit) | 0001 (b-nth bit) = 0010001 this take in turing machine context a + b steps... a, b < n then this operation take almost elemntary n steps... the internal operations of the for loop are the same of (1 << a) | (1 << b)
+now operations are in the worst case
+
+n => (1 << a) | (1 << b)
+n => while loop
+internals n
+
+then the total elementary steps (turing machine steps) are n + n * n
+
+now, for represent a set of n elements on a turing machine need almost 0, 1, 2, 3, 4, ..., n numbers, (indexes) why?
+
+in the minimal optimal case there (for 3 elements) is:
+
+000_001_010_011_111_...etc (_ blanck symbol) then for n elements you need n bits n times... then the input size is n ** 2 + n blanck symbols... then complexity of my algorithm its the same of the steps needed for compute union an connect...
+
+Its linear
+
+QED.
