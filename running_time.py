@@ -20,9 +20,7 @@ class USTCONN:
     def __str__(self):
         paths = ''
         for item in self.universe:
-            path = self.nary(item)
-            if path:
-                paths += '{}, '.format(path)
+            paths += '{}, '.format(self.nary(item))
         return paths
 
     def nary(self, n):
