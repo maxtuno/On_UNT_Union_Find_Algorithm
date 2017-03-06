@@ -64,26 +64,20 @@ if __name__ == '__main__':
     sizes = 1000
 
     unions = []
-
-    for size in range(sizes):
-        data = [(random.randint(0, size), random.randint(0, size)) for _ in range(size)]
-        ustconn = USTCONN()
-        ini = time.time()
-        for a, b in data:
-            ustconn.union(a, b)
-        end = time.time()
-        unions.append(end - ini)
-
     connections = []
 
-    for size in range(sizes):
+    for size in range(1, sizes):
         data = [(random.randint(0, size), random.randint(0, size)) for _ in range(size)]
         ustconn = USTCONN()
+        ini = time.time()        
+        for a, b in data:
+            ustconn.union(a, b)
+        unions.append((time.time() - ini) / size)
+        
         ini = time.time()
         for a, b in data:
             ustconn.connected(a, b)
-        end = time.time()
-        connections.append(end - ini)
+        connections.append((time.time() - ini) / size)
 
     plt.figure(figsize=(8, 8))
     plt.title('UNION CONNECTED UNT ALGORITHM\nTIME(s) vs SIZE\nUNION(r)/CONNECTION(b)')
